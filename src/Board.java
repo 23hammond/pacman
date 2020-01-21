@@ -315,6 +315,7 @@ public class Board extends JPanel implements ActionListener {
             ch = screenData[pos];
 
             if ((ch & 16) != 0) {
+                // Increase score if the tile Pac-Man is moving into is a Pac-Dot
                 screenData[pos] = (short) (ch & 15);
                 score+=10;
             }
@@ -358,7 +359,7 @@ public class Board extends JPanel implements ActionListener {
     }
 
     private void drawPacmanUp(Graphics2D g2d) {
-
+        // Cycle between animation frames
         switch (pacmanAnimPos) {
             case 1:
                 g2d.drawImage(pacman2up, pacman_x + 1, pacman_y + 1, this);
