@@ -1,4 +1,4 @@
-package javapac;
+package pacman;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -42,7 +42,7 @@ public class Board extends JPanel implements ActionListener {
     private int pacAnimCount = PAC_ANIM_DELAY;
     private int pacAnimDir = 1;
     private int pacmanAnimPos = 0;
-    private int N_GHOSTS = 4;
+    private int numGhosts = 4;
     private int pacsLeft, score;
     private int[] dx, dy;
     private int[] ghost_x, ghost_y, ghost_dx, ghost_dy, ghostSpeed;
@@ -121,7 +121,7 @@ public class Board extends JPanel implements ActionListener {
     }
 
     private void doAnim() {
-
+        // Adjusts which animation frame Pac-Man should be drawn with
         pacAnimCount--;
 
         if (pacAnimCount <= 0) {
@@ -135,7 +135,7 @@ public class Board extends JPanel implements ActionListener {
     }
 
     private void playGame(Graphics2D g2d) {
-
+    // If you aren't dead, continue game processes
         if (dying) {
 
             death();
@@ -197,8 +197,8 @@ public class Board extends JPanel implements ActionListener {
 
             score += 50;
 
-            if (N_GHOSTS < MAX_GHOSTS) {
-                N_GHOSTS++;
+            if (numGhosts < MAX_GHOSTS) {
+                numGhosts++;
             }
 
             if (currentSpeed < maxSpeed) {
@@ -210,7 +210,7 @@ public class Board extends JPanel implements ActionListener {
     }
 
     private void death() {
-
+    // Takes away a life upon death. you get 3 lives
         pacsLeft--;
 
         if (pacsLeft == 0) {
@@ -226,7 +226,7 @@ public class Board extends JPanel implements ActionListener {
         int pos;
         int count;
 
-        for (i = 0; i < N_GHOSTS; i++) {
+        for (i = 0; i < numGhosts; i++) {
             if (ghost_x[i] % BLOCK_SIZE == 0 && ghost_y[i] % BLOCK_SIZE == 0) {
                 pos = ghost_x[i] / BLOCK_SIZE + N_BLOCKS * (int) (ghost_y[i] / BLOCK_SIZE);
 
@@ -283,7 +283,7 @@ public class Board extends JPanel implements ActionListener {
             ghost_x[i] = ghost_x[i] + (ghost_dx[i] * ghostSpeed[i]);
             ghost_y[i] = ghost_y[i] + (ghost_dy[i] * ghostSpeed[i]);
             drawGhost(g2d, ghost_x[i] + 1, ghost_y[i] + 1);
-
+            // If Pac-Man touches a ghost he dies
             if (pacman_x > (ghost_x[i] - 12) && pacman_x < (ghost_x[i] + 12)
                     && pacman_y > (ghost_y[i] - 12) && pacman_y < (ghost_y[i] + 12)
                     && inGame) {
@@ -348,7 +348,7 @@ public class Board extends JPanel implements ActionListener {
     private void drawPacman(Graphics2D g2d) {
 
         if (view_dx == -1) {
-            drawPacnanLeft(g2d);
+            drawPacmanLeft(g2d);
         } else if (view_dx == 1) {
             drawPacmanRight(g2d);
         } else if (view_dy == -1) {
@@ -394,7 +394,7 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
-    private void drawPacnanLeft(Graphics2D g2d) {
+    private void drawPacmanLeft(Graphics2D g2d) {
 
         switch (pacmanAnimPos) {
             case 1:
@@ -474,7 +474,7 @@ public class Board extends JPanel implements ActionListener {
         pacsLeft = 3;
         score = 0;
         initLevel();
-        N_GHOSTS = 4;
+        numGhosts = 4;
         currentSpeed = 3;
     }
 
@@ -494,7 +494,7 @@ public class Board extends JPanel implements ActionListener {
         int dx = 1;
         int random;
 
-        for (i = 0; i < N_GHOSTS; i++) {
+        for (i = 0; i < numGhosts; i++) {
 
             ghost_y[i] = 4 * BLOCK_SIZE;
             ghost_x[i] = 4 * BLOCK_SIZE;
