@@ -1,4 +1,5 @@
-package javapac;
+// This just sets up the game, most of the code is in the "Board" class
+package pacman;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
