@@ -25,7 +25,7 @@ public class Pacman extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            var ex = new Pacman();
+            JFrame ex = new Pacman();
             ex.setVisible(true);
         });
     }

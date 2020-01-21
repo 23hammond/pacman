@@ -21,6 +21,7 @@ import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener {
 
+	// Declare variables and constants
     private Dimension d;
     private final Font smallFont = new Font("Helvetica", Font.BOLD, 14);
 
