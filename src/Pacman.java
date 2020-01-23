@@ -5,8 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 public class Pacman extends JFrame {
+	private static final long serialVersionUID = 1L;
 
-    public Pacman() {
+	public Pacman() {
 
         initUI();
     }
@@ -17,7 +18,7 @@ public class Pacman extends JFrame {
 
         setTitle("Pacman");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(380, 420);
+        setSize(646, 756);
         setLocationRelativeTo(null);
     }
 
