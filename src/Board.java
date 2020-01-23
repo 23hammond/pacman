@@ -33,7 +33,7 @@ public class Board extends JPanel implements ActionListener {
     private boolean dying = false;
 
     private final int BLOCK_SIZE = 24;
-    private final int N_BLOCKS = 15;
+    private final int N_BLOCKS = 29;
     private final int SCREEN_SIZE = N_BLOCKS * BLOCK_SIZE;
     private final int PAC_ANIM_DELAY = 2;
     private final int PACMAN_ANIM_COUNT = 4;
@@ -509,8 +509,8 @@ public class Board extends JPanel implements ActionListener {
 
         for (i = 0; i < numGhosts; i++) {
 
-            ghost_y[i] = 4 * BLOCK_SIZE;
-            ghost_x[i] = 4 * BLOCK_SIZE;
+            ghost_y[i] = 13 * BLOCK_SIZE;
+            ghost_x[i] = 13 * BLOCK_SIZE;
             ghost_dy[i] = 0;
             ghost_dx[i] = dx;
             dx = -dx;
@@ -523,8 +523,8 @@ public class Board extends JPanel implements ActionListener {
             ghostSpeed[i] = validSpeeds[random];
         }
 
-        pacman_x = 7 * BLOCK_SIZE;
-        pacman_y = 11 * BLOCK_SIZE;
+        pacman_x = 13 * BLOCK_SIZE;
+        pacman_y = 23 * BLOCK_SIZE;
         pacmand_x = 0;
         pacmand_y = 0;
         req_dx = 0;
